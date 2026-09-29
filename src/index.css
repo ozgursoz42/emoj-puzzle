@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* 3D Toy-like Button Styles */
+.game-btn {
+  position: relative;
+  transition: transform 0.1s ease, filter 0.1s ease;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.game-btn:active {
+  transform: translateY(3px) scale(0.98);
+}
+
+.game-btn-yellow {
+  background: linear-gradient(180deg, #FDE047 0%, #F59E0B 100%);
+  border-bottom: 5px solid #B45309;
+  color: #78350F;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.5), 0 8px 16px rgba(245, 158, 11, 0.4);
+}
+.game-btn-yellow:active {
+  border-bottom-width: 1px;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(245, 158, 11, 0.25);
+}
+
+.game-btn-green {
+  background: linear-gradient(180deg, #4ADE80 0%, #16A34A 100%);
+  border-bottom: 5px solid #14532D;
+  color: #FFFFFF;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.5), 0 8px 16px rgba(22, 163, 74, 0.4);
+}
+.game-btn-green:active {
+  border-bottom-width: 1px;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(22, 163, 74, 0.25);
+}
+
+.game-btn-purple {
+  background: linear-gradient(180deg, #C084FC 0%, #9333EA 100%);
+  border-bottom: 5px solid #581C87;
+  color: #FFFFFF;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.5), 0 8px 16px rgba(147, 51, 234, 0.4);
+}
+.game-btn-purple:active {
+  border-bottom-width: 1px;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(147, 51, 234, 0.25);
+}
+
+.game-btn-blue {
+  background: linear-gradient(180deg, #60A5FA 0%, #2563EB 100%);
+  border-bottom: 5px solid #1E3A8A;
+  color: #FFFFFF;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.5), 0 8px 16px rgba(37, 99, 235, 0.4);
+}
+.game-btn-blue:active {
+  border-bottom-width: 1px;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(37, 99, 235, 0.25);
+}
+
+.game-btn-coral {
+  background: linear-gradient(180deg, #FB7185 0%, #E11D48 100%);
+  border-bottom: 5px solid #881337;
+  color: #FFFFFF;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.5), 0 8px 16px rgba(225, 29, 72, 0.4);
+}
+.game-btn-coral:active {
+  border-bottom-width: 1px;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.3), 0 2px 4px rgba(225, 29, 72, 0.25);
+}
+
+/* Animations */
+@keyframes jiggle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.08) rotate(-3deg); }
+  75% { transform: scale(1.08) rotate(3deg); }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(253, 224, 71, 0.4)); }
+  50% { filter: drop-shadow(0 0 16px rgba(253, 224, 71, 0.85)); }
+}
+
+.animate-jiggle {
+  animation: jiggle 0.35s ease-in-out infinite;
+}
+
+.animate-float-soft {
+  animation: floatSoft 2.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 1.8s ease-in-out infinite;
+}
+
+/* Popping Burst Animation */
+@keyframes emojiPopBurst {
+  0% {
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 0 0 rgba(255,255,255,0));
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.35) rotate(-6deg);
+    filter: brightness(1.7) drop-shadow(0 0 16px rgba(253, 224, 71, 0.9));
+    opacity: 1;
+  }
+  65% {
+    transform: scale(1.45) rotate(6deg);
+    filter: brightness(2) drop-shadow(0 0 24px rgba(251, 113, 133, 1));
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.15) rotate(15deg);
+    filter: brightness(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes shockwaveRing {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+    border-width: 3px;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+.animate-emoji-pop {
+  animation: emojiPopBurst 0.26s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.animate-shockwave {
+  animation: shockwaveRing 0.28s ease-out forwards;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}

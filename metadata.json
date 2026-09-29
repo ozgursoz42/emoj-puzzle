@@ -1,0 +1,6 @@
+{
+  "name": "Emoji Patlatma",
+  "description": "Emojileri patlat, zinciri oluştur! Renkli, sevimli ve bağımlılık yaratan casual puzzle oyunu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
